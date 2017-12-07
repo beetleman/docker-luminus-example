@@ -3,8 +3,7 @@
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
 
-  :dependencies [[cider/cider-nrepl "0.15.0-SNAPSHOT"]
-                 [clj-time "0.14.0"]
+  :dependencies [[clj-time "0.14.0"]
                  [compojure "1.6.0"]
                  [conman "0.7.4"]
                  [cprop "0.1.11"]
@@ -59,9 +58,14 @@
    :project/dev  {:dependencies [[prone "1.1.4"]
                                  [ring/ring-mock "0.3.1"]
                                  [ring/ring-devel "1.6.3"]
-                                 [pjstadig/humane-test-output "0.8.3"]]
-                  :plugins      [[com.jakemccrary/lein-test-refresh "0.19.0"]]
-                  
+                                 [pjstadig/humane-test-output "0.8.3"]
+                                 ;; atom proto-repl
+                                 [proto-repl "0.3.1"]]
+                  :plugins      [[com.jakemccrary/lein-test-refresh "0.19.0"]
+                                 ;; emacs cider
+                                 [refactor-nrepl "2.4.0-SNAPSHOT"]
+                                 [cider/cider-nrepl "0.16.0-SNAPSHOT"]]
+
                   :source-paths ["env/dev/clj"]
                   :resource-paths ["env/dev/resources"]
                   :repl-options {:init-ns user}
