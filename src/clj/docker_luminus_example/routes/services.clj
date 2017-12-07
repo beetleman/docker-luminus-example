@@ -3,13 +3,21 @@
             [compojure.api.sweet :refer :all]
             [schema.core :as s]))
 
+
+(defn health [_]
+  (ok "ok"))
+
 (defapi service-routes
-  {:swagger {:ui "/swagger-ui"
+  {:swagger {:ui   "/swagger-ui"
              :spec "/swagger.json"
-             :data {:info {:version "1.0.0"
-                           :title "Sample API"
+             :data {:info {:version     "1.0.0"
+                           :title       "Sample API"
                            :description "Sample Services"}}}}
-  
+  (GET "/" []
+       :return String
+       :summary "is alive?"
+       health)
+
   (context "/api" []
     :tags ["thingie"]
 

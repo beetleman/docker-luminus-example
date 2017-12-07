@@ -16,8 +16,6 @@ services:
     extends: base
     links:
       - db
-    environment:
-      - DATABASE_URL=postgresql://postgres@:5432/postgres
     ports:
       - "3000:3000"
       - "7000:7000"
