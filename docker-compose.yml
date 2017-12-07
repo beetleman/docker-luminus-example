@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  base:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        - PWD=$PWD
+    environment:
+      - DATABASE_URL=postgresql://postgres:pass@db:5432/postgres
+    volumes:
+      - ./:$PWD
+
+  repl:
+    extends: base
+    links:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres@:5432/postgres
+    ports:
+      - "3000:3000"
+      - "7000:7000"
+    command: lein repl :headless :host 0.0.0.0 :port 7000
+
+  test:
+    extends: base
+    links:
+      - db-test:db
+    stdin_open: true
+    command: lein test-refresh
+
+  db:
+    image: postgres:10.1
+    environment:
+      - POSTGRES_PASSWORD=pass
+
+  db-test:
+    extends: db
+
+volumes:
+  m2-repo:

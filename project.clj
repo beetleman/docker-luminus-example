@@ -32,6 +32,7 @@
                  [selmer "1.11.3"]]
 
   :min-lein-version "2.0.0"
+  :local-repo "./.m2"
 
   :jvm-opts ["-server" "-Dconf=.lein-env"]
   :source-paths ["src/clj"]

@@ -1,0 +1,8 @@
+FROM clojure:lein-2.8.1
+MAINTAINER Mateusz Probachta <mateusz.probachta@gmail.com>
+
+ARG PWD
+
+RUN mkdir -p $PWD
+ADD . $PWD
+WORKDIR $PWD
