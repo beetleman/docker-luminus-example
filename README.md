@@ -26,7 +26,7 @@ for emacs users:
     docker-compose up repl
 
 - Connect to repl using your favorite editor
-- Tun app
+- Run app
 
 ```clojure
 (do (migrate) (start))
