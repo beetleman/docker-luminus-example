@@ -1,21 +1,32 @@
 # docker-luminus-example
 
-generated using Luminus version "2.9.12.04"
-
-FIXME
+example dockerized clojure web app
 
 ## Prerequisites
 
-You will need [Leiningen][1] 2.0 or above installed.
+You will need [docker][1] and [docker-compose][2].
 
-[1]: https://github.com/technomancy/leiningen
+[1]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
+[2]: https://docs.docker.com/compose/install/
+
+And editor with repl: atom (proto-repl) or emacs (cider)
+
 
 ## Running
 
-To start a web server for the application, run:
+- To start a repl for the edito, run:
 
-    lein run 
+    docker-compose up repl
+
+- Connect to repl using your favorite editor
+- Tun app
+
+```clojure
+(do (migrate) (start))
+```
+- open http://localhost:3000/swagger-ui/index.html
+
 
 ## License
 
-Copyright © 2017 FIXME
+Copyright © 2017 Mateusz Probachta
