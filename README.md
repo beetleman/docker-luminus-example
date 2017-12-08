@@ -11,6 +11,13 @@ You will need [docker][1] and [docker-compose][2].
 
 And editor with repl: atom (proto-repl) or emacs (cider)
 
+for atom users:
+```bash
+apm install proto-repl ink
+```
+
+for emacs users:
+- folow https://cider.readthedocs.io/en/latest/installation/
 
 ## Running
 
